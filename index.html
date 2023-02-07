@@ -9,7 +9,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="./assets/css/reset.css" />
-    <link rel="stylesheet" href="./assets/css/calculadora.css" />
+    <link rel="stylesheet" href="./assets/css/calculator.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Document</title>
   </head>
@@ -27,6 +27,85 @@
         <img src="assets/imgs/calculator.png" />
         <p>Calculator</p>
       </div>
+      <div class="app align-center appNotepad" style="top: 195px">
+        <img src="assets/imgs/notepad.png" />
+        <p>Notepad</p>
+      </div>
+      <div class="notepad open-app"></div>
+      <div class="calculator open-app">
+        <header class="align-center">
+          <div class="header-left align-center">
+            <img src="../assets/imgs/calculator.png" />
+            <h1>Calculadora</h1>
+          </div>
+          <div class="header-right align-center">
+            <div class="container-minimizer">
+              <span class="minimizer"></span>
+            </div>
+            <div><span class="square"></span></div>
+            <div class="container-close">
+              <span class="close align-center"></span>
+            </div>
+          </div>
+        </header>
+        <main class="main-container">
+          <div>
+            <section class="header-main align-center">
+              <div class="main-left align-center">
+                <i class="fa fa-navicon"></i>
+                <h2>Padrão</h2>
+              </div>
+              <i class="fa fa-history" aria-hidden="true"></i>
+            </section>
+            <section class="container-display align-center">
+              <span></span>
+              <input
+                maxlength="16"
+                class="display"
+                readonly
+                type="text"
+                value=""
+              />
+            </section>
+            <section class="header-calculator align-center">
+              <p>MC</p>
+              <p>MR</p>
+              <p>M+</p>
+              <p>M-</p>
+              <p>MS</p>
+              <p>M <i class="fa fa-angle-down"></i></p>
+            </section>
+            <section class="digits">
+              <div class="dark">%</div>
+              <div class="dark clear-display">CE</div>
+              <div class="dark clear-screen">C</div>
+              <div class="dark backspace">
+                <i class="fa fa-window-close" aria-hidden="true"></i>
+              </div>
+              <div class="dark">1/x</div>
+              <div class="dark"><i class="fa fa-superscript"></i></div>
+              <div class="dark"><sup>2</sup>&#8730;x</div>
+              <div class="dark operador">*</div>
+              <div class="numbers ligth">7</div>
+              <div class="numbers ligth">8</div>
+              <div class="numbers ligth">9</div>
+              <div class="dark operador">/</div>
+              <div class="numbers ligth">4</div>
+              <div class="numbers ligth">5</div>
+              <div class="numbers ligth">6</div>
+              <div class="dark operador">-</div>
+              <div class="numbers ligth">1</div>
+              <div class="numbers ligth">2</div>
+              <div class="numbers ligth">3</div>
+              <div class="dark operador">+</div>
+              <div class="ligth">+/-</div>
+              <div class="numbers ligth">0</div>
+              <div class="ligth decimal">.</div>
+              <div class="dark igual">=</div>
+            </section>
+          </div>
+        </main>
+      </div>
     </main>
     <footer class="align-center">
       <div class="container-icon-windows align-center">
@@ -43,18 +122,14 @@
           id="search"
         />
       </label>
+
       <div class="container-open-apps align-center">
-        <div class="app align-center">
-          <img src="assets/imgs/windows-explorer.png" />
+        <div class="app align-center footer-app" app="calculator">
+          <img src="assets/imgs/calculator.png" />
         </div>
-        <div class="app align-center">
-          <img src="assets/imgs/vs-code.png" />
+        <div class="app align-center footer-app" app="notepad">
+          <img src="assets/imgs/notepad.png" />
         </div>
-        <div class="app align-center"><img src="assets/imgs/chrome.png" /></div>
-        <div class="app align-center">
-          <img src="assets/imgs/whatssap.png" />
-        </div>
-        <div class="app align-center"><img src="assets/imgs/git.png" /></div>
       </div>
       <div class="container-rigth align-center">
         <i class="fa fa-angle-up" aria-hidden="true"></i>
@@ -71,7 +146,8 @@
         <i class="fa fa-wpforms" aria-hidden="true"></i>
       </div>
     </footer>
-    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/calculator.js"></script>
     <script src="./assets/js/dataAndHour.js"></script>
+    <script src="./assets/js/main.js"></script>
   </body>
 </html>

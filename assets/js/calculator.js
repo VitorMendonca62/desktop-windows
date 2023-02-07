@@ -95,20 +95,19 @@ function addDecimal() {
 function showResult() {
   if (span.innerHTML.length === 0) {
     span.innerHTML = `${display.value} +`;
-  } else if (span.innerHTML.replaceAll(/[^0-9]/g, "") === display.value) {
+  } else {
     const stringResult = `${span.innerHTML} ${display.value}`.replaceAll(
       " ",
       ""
     );
     const result = eval(stringResult);
-
-    span.innerHTML = `${result} + ${display.value} +`;
+    const operador = span.innerHTML.replaceAll(/[^\/\*\-\+]/g, "");
+    span.innerHTML = result + " " + operador;
     display.value = result;
   }
 
   isSafe = true;
 }
-
 window.addEventListener("keydown", () => {
   const key = Number(event.key) ? Number(event.key) : event.key;
   // console.log(key);
@@ -132,5 +131,3 @@ elemOperador.forEach((elem) => {
 elemNumbers.forEach((elem) => {
   elem.addEventListener("click", addNumber);
 });
-
-

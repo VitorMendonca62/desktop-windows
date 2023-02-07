@@ -1,9 +1,6 @@
 *:not(i) {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-*:not(input) {
-  cursor: default;
-}
 body {
   min-height: 100vh;
   overflow: hidden;
@@ -124,6 +121,8 @@ footer {
   margin-right: 0.1rem;
   padding: 0.5rem 0.8rem;
   border-bottom: 2px solid #fff;
+  transform: scale(0);
+  transition: 0.5s;
 }
 .container-open-apps .app:nth-child(1) {
   margin-left: 0.2rem;
@@ -180,11 +179,13 @@ footer {
   top: 10rem;
   left: 2rem;
   transform: scale(0);
-  transition: 0.5s;
 }
 .calculator-active {
   top: 10%;
   left: 50%;
   transform: scale(1);
-  transition: 0.5s;
+}
+.footer-app-active {
+  transform: scale(1) !important;
+  transition: 0.5s !important;
 }

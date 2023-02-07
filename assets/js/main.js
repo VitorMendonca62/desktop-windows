@@ -14,11 +14,10 @@ const apps = [...document.querySelectorAll("main .app")];
 
 apps.forEach((app, index) => {
   app.addEventListener("click", (e) => {
-    console.log("App ativado")
+    console.log("App ativado");
     app.classList.add("app-active");
   });
   app.addEventListener("drag", () => {});
-  app.addEventListener("dragstart", () => {});
   app.addEventListener("dragend", (e) => {
     const elem = e.target;
     const father = elem.parentElement;
@@ -28,13 +27,57 @@ apps.forEach((app, index) => {
 });
 
 const appCalculator = document.querySelector(".appCalculator");
+const footerApps = [...document.querySelectorAll(".footer-app")];
 
-async function showCalculator() {
-  const response = await fetch("../../calculadora/calculadora.html");
-  const html = await response.text();
-  document.querySelector(".desktop").innerHTML += html;
+footerApps.forEach((ap) => {
+  ap.addEventListener("click", () => {
+    const app = ap.getAttribute("app");
 
-  document.querySelector(".calculator").classList.add("calculator-active")
-}
+    if (app === "calculator") {
+      document.querySelector(".calculator").classList.toggle("calculator-active")
+    }
+  });
+});
 
 appCalculator.addEventListener("click", showCalculator);
+
+const elemClose = document.querySelector(".container-close");
+const elemMinimizer = document.querySelector(".container-minimizer");
+
+elemClose.addEventListener("click", () => {
+  document.querySelector(".calculator").classList.remove("calculator-active");
+  document.querySelector(".footer-app").classList.remove("footer-app-active");
+});
+
+elemMinimizer.addEventListener("click", () => {
+  document.querySelector(".calculator").classList.remove("calculator-active");
+});
+
+function showCalculator() {
+  document.querySelector(".calculator").classList.add("calculator-active");
+  document.querySelector(".footer-app").classList.add("footer-app-active");
+}
+
+const openApps = [...document.querySelectorAll(".open-app header")];
+
+openApps.forEach((app) =>
+  app.addEventListener("mousemove", (e) => {
+    const itemEvent = e.target;
+    let father = itemEvent.parentElement;
+
+    if (e.buttons) {
+      while (!father.classList.contains("open-app")) {
+        father = father.parentElement;
+      }
+      father.style.cursor = "move";
+      father.style.left = `${e.clientX - father.clientWidth / 2}px`;
+      father.style.top = `${e.clientY - itemEvent.clientHeight / 2}px`;
+    }
+    // console.log(father)
+
+    // if (e.buttons) {
+    //   itemEvent.style.top = `${event.clientY - itemEvent.clientHeight / 2}px`;
+    //   itemEvent.style.left = `${event.clientX - itemEvent.clientWidth / 2}px`;
+    // }
+  })
+);

@@ -23,6 +23,4 @@ function addDateAndHour() {
 
   elemDate.innerHTML = `${date}/${month}/${year}`;
 }
-
-addDateAndHour()
 setInterval(addDateAndHour, 1000);
